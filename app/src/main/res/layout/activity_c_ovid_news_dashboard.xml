@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CovidNews.COvidNewsDashboard">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#49ACFA"
+            android:elevation="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Latest Covid News"
+                android:textColor="#F4F1F1"
+                android:textSize="30sp"
+                app:fontFamily="@font/" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="News of last 10 hrs is available"
+                android:textColor="@color/colorBlack"
+                android:textSize="15dp" />
+            <TextView
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:id="@+id/last"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:text="Last Updated:"/>
+            <TextView
+                android:id="@+id/last_updates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:layout_below="@id/last"
+                android:layout_alignParentRight="true"
+                android:text="Data Not Availbe"/>
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="1dp"
+            android:background="#453C3C" />
+
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1."
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/news_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Indinan news of covid 19 newsddhfosdjcsidosdwdccdimscdsicsdinsod"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorOrange" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2."
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/news_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Indinan news of covid 19 newsddhfosdjcsidosdwdccdimscdsicsdinsod"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorOrange" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3."
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/news_three"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Indinan news of covid 19 newsddhfosdjcsidosdwdccdimscdsicsdinsod"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorOrange" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4."
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/news_four"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Indinan news of covid 19 newsddhfosdjcsidosdwdccdimscdsicsdinsod"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorOrange" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5."
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/news_five"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Indinan news of covid 19 newsddhfosdjcsidosdwdccdimscdsicsdinsod"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorOrange" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6."
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/news_six"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Indinan news of covid 19 newsddhfosdjcsidosdwdccdimscdsicsdinsod"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorOrange" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7."
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/news_seven"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Indinan news of covid 19 newsddhfosdjcsidosdwdccdimscdsicsdinsod"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorOrange" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8."
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/news_eight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Indinan news of covid 19 newsddhfosdjcsidosdwdccdimscdsicsdinsod"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorOrange" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="9."
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/news_nine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Indinan news of covid 19 newsddhfosdjcsidosdwdccdimscdsicsdinsod"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorOrange" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10."
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/news_ten"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Indinan news of covid 19 newsddhfosdjcsidosdwdccdimscdsicsdinsod"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorOrange" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</RelativeLayout>

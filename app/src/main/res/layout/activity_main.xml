@@ -1,0 +1,2949 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#EBEAEC"
+        android:elevation="10dp"
+        android:transitionName="header_logo">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="Updating India Two"
+            android:textColor="#000000"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/analysis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:src="@drawable/analysis_icon"
+            android:onClick="callCovidNews"/>
+
+        <ImageView
+            android:id="@+id/feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:layout_toLeftOf="@id/analysis"
+            android:elevation="5dp"
+            android:onClick="feedback"
+            android:src="@drawable/feedback_icon" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <Spinner
+                android:id="@+id/states_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:entries="@array/states"
+                android:popupBackground="@drawable/box_shape"
+                android:spinnerMode="dropdown"
+                android:transitionName="header_spinner" />
+
+            <RelativeLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/circle_blue">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tota_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total cases"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/total_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tota_cases"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="30sp" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/circle_orange">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/activ_cases"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Active cases"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/active_cases"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/activ_cases"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center_horizontal"
+                            android:text="live data"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/circle_green">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/recovere_cases"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Recovered cases"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/recovered_cases"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/recovere_cases"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center_horizontal"
+                            android:text="live data"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/circle_red">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/deat_cases"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Death cases"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/death_cases"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/deat_cases"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center_horizontal"
+                            android:text="live data"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/search"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="Search city"
+                    android:textColorHint="#D3D3D3"
+                    app:boxStrokeColor="#000000"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="#000000"
+                    app:hintTextColor="#000000"
+                    app:startIconDrawable="@drawable/states_search_icon"
+                    app:startIconTint="#000000">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/filter_list_icon" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="1dp"
+        android:background="#453C3C" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/india1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/india_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/india1_cases"
+                    android:gravity="center_horizontal"
+                    android:text="India"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="30sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/india_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/india_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/india_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/andaman1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/andaman_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_toRightOf="@+id/andaman1_cases"
+                    android:text="Andaman and nicobar"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/andaman_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/andaman_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/andaman_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#CACACA" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/andhra_pradesh1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/andhra_pradesh_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_toRightOf="@+id/andhra_pradesh1_cases"
+                    android:text="Andhra pradesh"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/andhra_pradesh_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/andhra_pradesh_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/andhra_pradesh_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/anurachal_pradesh1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/anurachal_pradesh_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_toRightOf="@+id/anurachal_pradesh1_cases"
+                    android:text="Anurachal Pradesh"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/anurachal_pradesh_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/anurachal_pradesh_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/anurachal_pradesh_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/assam1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/assam_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_toRightOf="@+id/assam1_cases"
+                    android:text="Assam"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/assam_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/assam_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/assam_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/bihar1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/bihar_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/bihar1_cases"
+                    android:text="Bihar"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/bihar_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/bihar_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/bihar_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/chandigarh1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/chandigarh_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/chandigarh1_cases"
+                    android:text="Chandigarh"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/chandigarh_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/chandigarh_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/chandigarh_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/chhattisgarh1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/chhattisgarh_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/chhattisgarh1_cases"
+                    android:text="Chhatisgarh"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/chhattisgarh_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/chhattisgarh_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/chhattisgarh_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/dadra1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/dadra_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/dadra1_cases"
+                    android:text="Dadra and Nagar Haveli\n and Daman and Due"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/dadra_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/dadra_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/dadra_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/delhi1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/delhi_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/delhi1_cases"
+                    android:text="Delhi"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/delhi_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/delhi_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/delhi_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/goa1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/goa_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/goa1_cases"
+                    android:text="Goa"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/goa_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/goa_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/goa_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/gujarat1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/gujarat_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/gujarat1_cases"
+                    android:text="Gujarat"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/gujarat_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/gujarat_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/gujarat_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/haryana1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/haryana_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/haryana1_cases"
+                    android:text="Haryana"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/haryana_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/haryana_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/haryana_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/himachal1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/himachal_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/himachal1_cases"
+                    android:text="Himachal pradesh"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/himachal_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/himachal_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/himachal_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/jammu1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/jammu_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/jammu1_cases"
+                    android:text="Jammu and Kashmir"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/jammu_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/jammu_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/jammu_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/jharkhand1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/jharkhand_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/jharkhand1_cases"
+                    android:text="Jharkhand"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/jharkhand_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/jharkhand_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/jharkhand_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/karnataka1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/karnataka_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/karnataka1_cases"
+                    android:text="karnataka"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/karnataka_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/karnataka_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/karnataka_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/kerala1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/kerala_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/kerala1_cases"
+                    android:text="Kerala"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/kerala_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/kerala_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/kerala_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/ladakh1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/ladakh_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/ladakh1_cases"
+                    android:text="Ladakh"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/ladakh_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/ladakh_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/ladakh_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/lakshadweep1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/lakshadweep_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/lakshadweep1_cases"
+                    android:text="Lakshadweep"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lakshadweep_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/lakshadweep_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/lakshadweep_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/meghalaya1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/meghalaya_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/meghalaya1_cases"
+                    android:text="Meghalaya"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/meghalaya_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/meghalaya_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/meghalaya_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/manipur1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/manipur_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/manipur1_cases"
+                    android:text="Manipur"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/manipur_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/manipur_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/manipur_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/madhya1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/madhya_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/madhya1_cases"
+                    android:text="Madhya Pradesh"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/madhya_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/madhya_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/madhya_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/mizoram1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/mizoram_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/mizoram1_cases"
+                    android:text="Mizoram"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/mizoram_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/mizoram_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/mizoram_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/nagaland1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/nagaland_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/nagaland1_cases"
+                    android:text="Nagaland"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/nagaland_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/nagaland_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/nagaland_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/odisha1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/odisha_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/odisha1_cases"
+                    android:text="Odisha"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/odisha_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/odisha_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/odisha_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/puducherry1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/puducherry_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/puducherry1_cases"
+                    android:text="Puducherry"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/puducherry_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/puducherry_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/puducherry_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/punjab1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/punjab_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/punjab1_cases"
+                    android:text="Punjab"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/punjab_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/punjab_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/punjab_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rajasthan1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/rajasthan_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/rajasthan1_cases"
+                    android:text="Rajasthan"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/rajasthan_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/rajasthan_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/rajasthan_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/sikkim1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/sikkim_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/sikkim1_cases"
+                    android:text="Sikkim"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/sikkim_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/sikkim_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/sikkim_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/state_unassigned1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/state_unassigned_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/state_unassigned1_cases"
+                    android:text="State Unassigned"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/state_unassigned_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/state_unassigned_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/state_unassigned_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/tamil_nadu1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/tamil_nadu_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/tamil_nadu1_cases"
+                    android:text="Tamil Nadu"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tamil_nadu_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tamil_nadu_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tamil_nadu_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/telangana1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/telangana_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/telangana1_cases"
+                    android:text="Telangana"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/telangana_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/telangana_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/telangana_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/tripura1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/tripura_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/tripura1_cases"
+                    android:text="Tripura"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tripura_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tripura_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tripura_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/uttar_pradesh1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/uttar_pradesh_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/uttar_pradesh1_cases"
+                    android:text="Uttar Pradesh"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/uttar_pradesh_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/uttar_pradesh_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/uttar_pradesh_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/uttrakhand1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/uttrakhand_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/uttrakhand1_cases"
+                    android:text="Uttrakhand"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/uttrakhand_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/uttrakhand_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/uttrakhand_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/westbengal1_cases"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/circle_blue">
+
+                    <TextView
+                        android:id="@+id/westbengal_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="live data"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/westbengal1_cases"
+                    android:text="West Bengal"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/westbengal_active_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="active"
+                        android:textColor="#FF8706"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/westbengal_recovered_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="recovered"
+                        android:textColor="@color/colorRecovered"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/westbengal_death_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="death"
+                        android:textColor="#FF1B06"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
